@@ -1,3 +1,0 @@
-# Sangreal
-
-## Vineet's Project
