@@ -6,4 +6,5 @@
     <color name="colorText">#FFFFFF</color>
     <color name="colorAccent">#CDDC39</color>
     <color name="colorPrimaryText">#212121</color>
+    <color name="backgroundColor">#1976D2</color>
 </resources>

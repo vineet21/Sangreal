@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
     EditText userName, password;
-    Button login,signup;
+    Button login, signup;
     Context context;
 
     @Override
@@ -28,26 +28,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO: Logic to verify credentials
-               if(isUserValid(userName, password)){
-                   startActivity(new Intent(context,MainActivity.class));
-               }else{
-                   Snackbar.make(v, "Invalid username or password", Snackbar.LENGTH_LONG).show();
-               }
+                if (isUserValid(userName, password)) {
+                    BC.userName = userName.getText().toString();
+                    startActivity(new Intent(context, MainActivity.class));
+                } else {
+                    Snackbar.make(v, "Invalid username or password", Snackbar.LENGTH_LONG).show();
+                }
             }
         });
-      /* super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up2);
 
-        context = this;
 
         signup = (Button) findViewById(R.id.signUpButton);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                startActivity(new Intent(context,SignUpActivity.class));
+            public void onClick(View v) {
+                startActivity(new Intent(context, SignUpActivity.class));
             }
-        });*/
+        });
     }
 
     private boolean isUserValid(EditText userName, EditText password) {
