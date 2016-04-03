@@ -84,14 +84,14 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_tag) {
-            // Handle the camera action
+            startActivity(new Intent(MainActivity.this, Tag.class));
         } else if (id == R.id.nav_view) {
 
         } else if (id == R.id.nav_register) {
             startActivity(new Intent(MainActivity.this, SignUpActivity.class));
 
         } else if (id == R.id.nav_help) {
-
+            startActivity(new Intent(MainActivity.this, Map.class));
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
