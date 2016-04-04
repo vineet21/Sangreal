@@ -1,5 +1,6 @@
 package com.vineet.sangreal;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,15 +14,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView nameOfUser;
+    Button book;
+    Context context;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -92,6 +98,9 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_help) {
             startActivity(new Intent(MainActivity.this, Map.class));
+        } else if (id == R.id.nav_signout) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
