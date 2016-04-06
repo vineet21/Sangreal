@@ -16,6 +16,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.app.AlertDialog;
+import android.app.Service;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.provider.Settings;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -23,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     TextView nameOfUser;
     Button book;
     Context context;
+    
 
 
     @Override
@@ -97,7 +110,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this, SignUpActivity.class));
 
         } else if (id == R.id.nav_help) {
-            startActivity(new Intent(MainActivity.this, Map.class));
+
         } else if (id == R.id.nav_signout) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
 
