@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
     TextView nameOfUser;
     Button book;
     Context context;
-    
+
 
 
     @Override
@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
 
         
 
@@ -109,9 +112,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_register) {
             startActivity(new Intent(MainActivity.this, SignUpActivity.class));
 
-        } else if (id == R.id.nav_help) {
 
-        } else if (id == R.id.nav_signout) {
+        } else if (id == R.id.nav_help) {
+            startActivity(new Intent(MainActivity.this, Map.class));
+
+        }
+        else if (id == R.id.nav_signout) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
 
         } else if (id == R.id.nav_share) {
