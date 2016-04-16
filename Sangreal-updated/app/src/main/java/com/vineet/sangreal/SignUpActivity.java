@@ -11,8 +11,11 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import java.util.Calendar;
 
 public class SignUpActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+   DatabaseHelper helper = new DatabaseHelper(this);
+
     Button datePickerButton;
     TextView datePickerText;
+    String namestr,emailstr ,passwordstr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,5 +44,15 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
         String date = "Date of Birth: "+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
         datePickerText.setText(date);
+    }
+    {
+        Contact c= new Contact();
+        c.setName(namestr);
+        c.setEmail(emailstr);
+        c.setPassword(passwordstr);
+        helper.insertContact(c);
+
+
+
     }
 }

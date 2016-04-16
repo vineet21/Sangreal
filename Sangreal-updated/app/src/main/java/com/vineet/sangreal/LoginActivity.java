@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
+    DatabaseHelper helper =new DatabaseHelper(this);
     EditText userName, password;
     Button login, signup;
     Context context;
+    String str;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO: Logic to verify credentials
-                if (isUserValid(userName, password)) {
+                String password1 = helper.searchPassword(str);
+                if (password.equals(password1)) {
                     BC.userName = userName.getText().toString();
                     startActivity(new Intent(context, MainActivity.class));
                 } else {
@@ -47,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isUserValid(EditText userName, EditText password) {
+    /*private boolean isUserValid(EditText userName, EditText password) {
         return userName.getText().toString().equals("vineet") && password.getText().toString().equals("vineet");
-    }
+    }*/
 }
