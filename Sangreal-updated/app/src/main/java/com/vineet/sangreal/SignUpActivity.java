@@ -1,5 +1,6 @@
 package com.vineet.sangreal;
 
+import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,11 +12,12 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import java.util.Calendar;
 
 public class SignUpActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
-   DatabaseHelper helper = new DatabaseHelper(this);
+
 
     Button datePickerButton;
     TextView datePickerText;
-    String namestr,emailstr ,passwordstr;
+    Button otp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,17 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
                 dpd.show(getFragmentManager(), "Datepickerdialog");
             }
         });
+        otp = (Button) findViewById(R.id.SubmitButton);
+        otp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(SignUpActivity.this);
+                dialog.setTitle("Kindly enter the OTP");
+                dialog.setContentView(R.layout.otp);
+                dialog.show();
+
+            }
+        });
     }
 
     @Override
@@ -45,14 +58,5 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
         String date = "Date of Birth: "+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
         datePickerText.setText(date);
     }
-    {
-        Contact c= new Contact();
-        c.setName(namestr);
-        c.setEmail(emailstr);
-        c.setPassword(passwordstr);
-        helper.insertContact(c);
 
-
-
-    }
 }

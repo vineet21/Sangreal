@@ -1,5 +1,6 @@
 package com.vineet.sangreal;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
@@ -10,11 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
-    DatabaseHelper helper =new DatabaseHelper(this);
+
     EditText userName, password;
-    Button login, signup;
+    Button login, signup, booknow;
     Context context;
-    String str;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +26,14 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         context = this;
 
+
         login = (Button) findViewById(R.id.loginButton);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO: Logic to verify credentials
-                String password1 = helper.searchPassword(str);
-                if (password.equals(password1)) {
+
+                if (isUserValid(userName, password)) {
                     BC.userName = userName.getText().toString();
                     startActivity(new Intent(context, MainActivity.class));
                 } else {
@@ -50,7 +52,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    /*private boolean isUserValid(EditText userName, EditText password) {
+
+
+    private boolean isUserValid(EditText userName, EditText password) {
         return userName.getText().toString().equals("vineet") && password.getText().toString().equals("vineet");
-    }*/
+    }
 }

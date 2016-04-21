@@ -1,5 +1,6 @@
 package com.vineet.sangreal;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,8 +34,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView nameOfUser;
-    Button book;
-    Context context;
+    Button booknow;
+
 
 
 
@@ -45,11 +46,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
-
-        
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -64,6 +60,18 @@ public class MainActivity extends AppCompatActivity
 
         nameOfUser = (TextView) header.findViewById(R.id.nameOfUserText);
         nameOfUser.setText(BC.userName);
+
+        booknow = (Button) findViewById(R.id.booknow);
+        booknow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(MainActivity.this);
+                dialog.setTitle("For whom do you want to book the ambulance? ");
+                dialog.setContentView(R.layout.book1);
+                dialog.show();
+
+            }
+        });
 
     }
 
