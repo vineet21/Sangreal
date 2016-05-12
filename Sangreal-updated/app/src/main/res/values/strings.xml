@@ -1,13 +1,16 @@
 <resources>
-    <string name="app_name">SANGREAL</string>
+    <string name="app_name">BayMax</string>
     <string name="login_button">Login</string>
     <string name="submit_button">Submit</string>
     <string name="signUp_button">Sign Up</string>
     <string name="or">OR</string>
     <string name="book1">For whom do you want to book the ambulance?</string>
     <string name="title_activity_main">Sangreal</string>
+    <string name="title_sign_up">Sign Up</string>
+    <string name="title_tag">Tag</string>
     <string name="book">Book Now</string>
     <string name="login_cancel">Cancel</string>
+    <string name="login_resend">Resend OTP</string>
     <string name="login_book">Book Now</string>
     <string name="login_otp">Kindly enter the OTP</string>
     <string name="login_note">*Kindly ask friend/relative to share the OTP </string>

@@ -1,6 +1,6 @@
 package com.vineet.sangreal;
 
-import android.app.Dialog;
+
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
@@ -13,7 +13,7 @@ import android.widget.EditText;
 public class LoginActivity extends AppCompatActivity {
 
     EditText userName, password;
-    Button login, signup, booknow;
+    Button login, signup;
     Context context;
 
 

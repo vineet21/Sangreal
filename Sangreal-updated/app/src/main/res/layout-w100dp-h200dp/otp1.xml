@@ -13,15 +13,17 @@
         android:textAlignment="center"
         android:textSize="20sp" />
 
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:inputType="number"
-        android:ems="4"
+        android:maxLength="4"
         android:id="@+id/editText"
         android:layout_gravity="center_horizontal"
         android:hint="OTP"/>
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,6 +46,18 @@
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"/>
 
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/resend"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="match_parent"
+            android:text="@string/login_resend"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"/>
     </TableRow>
     <TextView
         android:layout_width="match_parent"

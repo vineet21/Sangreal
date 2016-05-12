@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
@@ -16,7 +17,7 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
 
     Button datePickerButton;
     TextView datePickerText;
-    Button otp;
+    Button otp,resend;
 
 
     @Override
@@ -48,10 +49,21 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
                 dialog.setTitle("Kindly enter the OTP");
                 dialog.setContentView(R.layout.otp);
                 dialog.show();
+                resend =(Button)dialog.findViewById(R.id.resend);
+                resend.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "OTP has been resend", Toast.LENGTH_SHORT).show();
+                    }
+
+                });
 
             }
         });
+
     }
+
+
 
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
