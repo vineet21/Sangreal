@@ -1,6 +1,7 @@
 package com.vineet.sangreal;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,9 +22,6 @@ public class MainActivity extends AppCompatActivity
 
     TextView nameOfUser;
     Button booknow;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +53,6 @@ public class MainActivity extends AppCompatActivity
                 dialog.setTitle("For whom do you want to book the ambulance? ");
                 dialog.setContentView(R.layout.book1);
                 dialog.show();
-
             }
         });
 

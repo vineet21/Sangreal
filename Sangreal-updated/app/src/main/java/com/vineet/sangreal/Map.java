@@ -19,7 +19,7 @@ import android.util.Log;
 import com.google.android.gms.common.ConnectionResult;
 
 
-public class Map extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
+public class  Map extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         com.google.android.gms.location.LocationListener {
 
