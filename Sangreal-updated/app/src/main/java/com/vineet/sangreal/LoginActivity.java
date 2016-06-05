@@ -3,6 +3,7 @@ package com.vineet.sangreal;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +14,7 @@ import android.widget.EditText;
 public class LoginActivity extends AppCompatActivity {
 
     EditText userName, password;
-    Button login, signup;
+    Button login, signup, ForgotPass;
     Context context;
 
 
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         userName = (EditText) findViewById(R.id.userName);
         password = (EditText) findViewById(R.id.password);
         context = this;
+        final DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
 
 
         login = (Button) findViewById(R.id.loginButton);
@@ -33,12 +35,21 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //TODO: Logic to verify credentials
 
-                if (isUserValid(userName, password)) {
+                /*if (isUserValid(userName, password)) {
                     BC.userName = userName.getText().toString();
                     startActivity(new Intent(context, MainActivity.class));
                 } else {
                     Snackbar.make(v, "Invalid username or password", Snackbar.LENGTH_LONG).show();
+                }*/
+                Cursor cursor  = dataBaseHelper.isValidUser(userName.getText().toString(), password.getText().toString());
+                if (cursor.getCount() == 0 ){
+                    Snackbar.make(v, "Invalid username or password", Snackbar.LENGTH_LONG).show();
                 }
+                else{
+                    BC.userName = userName.getText().toString();
+                    startActivity(new Intent(context, MainActivity.class));
+                }
+                cursor.close();
             }
         });
 
@@ -48,6 +59,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(context, SignUpActivity.class));
+            }
+        });
+
+        ForgotPass = (Button)findViewById(R.id.forgotpasswordbtn);
+        ForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context, ForgotPassword.class));
             }
         });
     }

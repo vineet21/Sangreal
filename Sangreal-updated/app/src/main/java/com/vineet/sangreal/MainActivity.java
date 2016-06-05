@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity
                 dialog.setTitle("For whom do you want to book the ambulance? ");
                 dialog.setContentView(R.layout.book1);
                 dialog.show();
+                return;
             }
         });
 
